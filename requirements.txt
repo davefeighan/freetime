@@ -1,3 +1,4 @@
+Beaker==1.6.4
 Chameleon==2.14
 Mako==0.9.1
 MarkupSafe==0.18
@@ -7,11 +8,12 @@ SQLAlchemy==0.9.1
 WebOb==1.3.1
 alembic==0.6.2
 argparse==1.2.1
--e git+git@github.com:davefeighan/freetime.git@45abb880bb03d8df901d7bc93dce7570905e8371#egg=freetime-master
+-e git+git@github.com:davefeighan/freetime.git@286ca5895dd9fbe2d6ffa7cdc8c61e9fb78ea5b5#egg=freetime-master
 ipython==1.1.0
 passlib==1.6.2
 psycopg2==2.5.2
 pyramid==1.4.5
+pyramid-beaker==0.8
 pyramid-debugtoolbar==1.0.9
 pyramid-mako==0.3.1
 pyramid-tm==0.7

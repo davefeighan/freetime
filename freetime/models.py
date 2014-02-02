@@ -10,6 +10,7 @@ from sqlalchemy import (
 
 from sqlalchemy.schema import UniqueConstraint
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.dialects.postgresql.base import UUID
 from sqlalchemy import func
 
@@ -55,7 +56,7 @@ class User(Base):
     phone_number = Column(Text)
     username = Column(Text, nullable=False)
     _password = Column('password', Text, nullable=False)
-    role = Column(
+    _role = Column('role',
         Enum(
             'Doer',
             'Leader',
@@ -65,9 +66,10 @@ class User(Base):
         nullable=False)
 
     __mapper_args__ = {
-    'polymorphic_on': role,
+    'polymorphic_on': _role,
     'polymorphic_identity': 'Unknown'
     }
+    interests = []
 
     @property
     def password(self):
@@ -75,6 +77,21 @@ class User(Base):
     @password.setter
     def password(self, password):
         self._password = hash_password(password)
+
+    @property
+    def role(self):
+        return self._role
+    @role.setter
+    def role(self, role):
+        self._role = role
+        if role == 'Doer':
+            self.__class__ = Doer
+        else:
+            self.__class__ = Leader
+    
+
+    def add_interest(self, interest):
+        raise NotImplementedError()
 
     @classmethod
     def get_by_username(cls, username):
@@ -98,8 +115,19 @@ class Doer(User):
     __mapper_args__ = {
         'polymorphic_identity': 'Doer'
     }
+
+    def __init__(self, *args, **kwargs):
+        super(Doer, self).__init__(*args, **kwargs)
+
     id = Column(ForeignKey('user.id'), primary_key=True,
         server_default=func.uuid_generate_v4())
+
+    interests = association_proxy('doer_interest', 'doer',
+        creator=lambda interest: DoerInterest(interest=interest))
+
+    def add_interest(self, interest):
+        doer_interest = DoerInterest(doer=self, interest=interest)
+        return doer_interest
 
 class Leader(User):
     __tablename__ = 'leader'
@@ -109,6 +137,8 @@ class Leader(User):
     }
     id = Column(ForeignKey('user.id'), primary_key=True,
         server_default=func.uuid_generate_v4())
+    def add_interest(self, interest):
+        return LeaderInterest(leader=self, interest=interest)
 
 class Request(Base):
     __tablename__ = 'request'
@@ -146,7 +176,7 @@ class LeaderInterest(Base):
     leader_id = Column(ForeignKey('leader.id'), nullable=False)
     interest_id = Column(ForeignKey('interest.id'), nullable=False)
 
-    leader = relationship('Leader', backref=backref('requests',
+    leader = relationship('Leader', backref=backref('interests',
         cascade='all, delete-orphan'))
     interest = relationship('Interest', backref=backref('leaderinterests',
         cascade='all, delete-orphan'))
@@ -159,6 +189,10 @@ class Interest(Base):
         )
 
     name = Column(Text, nullable=False)
+
+    @classmethod
+    def get_by_name(cls, name):
+        return DBSession.query(cls).filter(cls.name==name).first()
 
 class Event(Base):
     __tablename__ = 'event'
