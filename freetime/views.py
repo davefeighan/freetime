@@ -28,7 +28,7 @@ class Home(BaseView):
     @view_config(route_name='home', renderer='freetime:templates/index.html.mako',
         request_method='GET')
     def home(self):
-        return {}
+        return self.response
 
 class AuthenticationView(BaseView):
     @view_config(route_name='sign_up', renderer='freetime:templates/sign_up.html.mako',
@@ -94,3 +94,8 @@ class AuthenticationView(BaseView):
                     )
 
         return self.response
+
+    @view_config(route_name='sign_out', request_method='GET')
+    def sign_out(self):
+        forget(self.request)
+        return HTTPFound(location=self.request.route_url('home'))

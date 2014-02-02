@@ -56,7 +56,7 @@ a:active {
 <div class="header_bg">
 <div class="wrap">
 	<div class="header">
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
+		  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
 		    <tr>
 		      <td><a href="index.html"><img src="static/images/freetime_logo.png" alt="" height="75"/></a></td>
 			    <td valign="middle" class="header_table"><p>
@@ -79,107 +79,130 @@ a:active {
     </table></div>            
 </div>
 		<div class="clear"></div>
+	</div>
+</div>
+<!-- start header -->
+<div class="header_btm">
+<div class="wrap">
+	<div class="header_sub">
+		<div class="h_menu">
+			<ul>
+				<li class="active"></li>
+			</ul>
+		</div>
+		<div class="sub-head">
+<ul>
+            	<li><a href="#" id="menu">Menu  <span></span></a></li>
+            	<li><a href="#" id="search">Search <span></span></a></li>
+            </ul>
+            <div class="clear"></div>
+        </div>
+	   <script type="text/javascript">
+		$(".menu,.search").hide();
+		$("#menu").click(function(){
+			$(".menu").toggle();
+			$(".search").hide();
+			$("#search").removeClass("active");
+			$("#menu").toggleClass("active");
+		});
+		$("#search").click(function(){
+			$(".search").toggle();
+			$(".menu").hide();
+			$("#menu").removeClass("active");
+			$("#search").toggleClass("active");
+			$(".text").focus();
+		});
+	</script>
+	<script type="text/javascript" src="static/js/script.js"></script>
+	<div class="clear"></div>
+
+		<div class="clear"></div>
 </div>
 </div>
-<!-- start header --><!-- start slider --><!-- start main -->
+</div>
+<!-- start slider -->
+<div class="top_bg">
+  <div class="wrap">
+    <div class="top">
+      <h2>Profile</h2>
+    </div>
+  </div>
+</div>
+<!-- start main -->
 <div class="wrap">
 	<div class="main"><!-- start grids_of_3 -->
 	  <div class="grids_of_1">
 	    <form name="form1" method="post" action="">
-	      <table width="50%" border="1" align="right" cellpadding="0" cellspacing="1">
+	      <table width="75%" border="0" cellspacing="1" cellpadding="1">
 	        <tr>
-	          <td width="213" align="center" valign="top">Firsname</td>
-	          <td width="174" align="left"><label for="name_first"></label>
-              <input type="text" name="name_first" id="name_first"></td>
+	          <td width="24%">$username (first/last)</td>
+	          <td width="4%">&nbsp;</td>
+	          <td width="72%">Events that match your interests</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Lastname</td>
-	          <td align="left"><label for="name_last"></label>
-              <input type="text" name="name_last" id="name_last"></td>
+	          <td><img src="static/images/default.gif" width="150" height="150"></td>
+	          <td>&nbsp;</td>
+	          <td rowspan="7"><table width="85%" border="0" align="center" cellpadding="1" cellspacing="1">
+	            <tr>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+                </tr>
+	            <tr>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+                </tr>
+	            <tr>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+                </tr>
+	            <tr>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+                </tr>
+	            <tr>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+	              <td>&nbsp;</td>
+                </tr>
+              </table></td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Age</td>
-	          <td align="left"><label for="age"></label>
-              <input type="text" name="age" id="age"></td>
+	          <td>&nbsp;</td>
+	          <td>&nbsp;</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">&nbsp;</td>
-	          <td align="left">&nbsp;</td>
+	          <td>Subscribed events</td>
+	          <td>&nbsp;</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Email</td>
-	          <td align="left"><label for="username"></label>
-              <input type="text" name="username" id="username"></td>
+	          <td><img src="static/images/flat-27389_640.png" width="150" height="152"></td>
+	          <td>&nbsp;</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Password</td>
-	          <td align="left"><label for="password"></label>
-              <input type="text" name="password" id="password"></td>
+	          <td>&nbsp;</td>
+	          <td>&nbsp;</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Confirm your password</td>
-	          <td align="left"><label for="password_confirm"></label>
-              <input type="text" name="password_confirm" id="password_confirm"></td>
+	          <td>Event locations</td>
+	          <td>&nbsp;</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">&nbsp;</td>
-	          <td align="left">&nbsp;</td>
+	          <td><img src="static/images/Interactive-Google-Maps.png" width="150" height="150"></td>
+	          <td>&nbsp;</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Role</td>
-	          <td align="left"><label for="role"></label>
-	            <select name="role" id="role">
-	              <option>Leader</option>
-	              <option>Do-er</option>
-              </select></td>
-            </tr>
-	        <tr>
-	          <td align="center" valign="top">&nbsp;</td>
-	          <td align="left">&nbsp;</td>
-            </tr>
-	        <tr>
-	          <td align="center" valign="top">Select you first interest</td>
-	          <td align="left"><select name="select" id="select">
-              </select></td>
-            </tr>
-	        <tr>
-	          <td align="center" valign="top">Select you second interest</td>
-	          <td align="left"><select name="select2" id="select2">
-              </select></td>
-            </tr>
-	        <tr>
-	          <td align="center" valign="top">Select you third interest</td>
-	          <td align="left"><select name="select3" id="select3">
-              </select></td>
-            </tr>
-	        <tr>
-	          <td align="left">&nbsp;</td>
-	          <td align="left">&nbsp;</td>
-            </tr>
-	        <tr>
-	          <td align="left">&nbsp;</td>
-	          <td align="left"><input type="submit" name="submit" id="submit" value="Verzenden"></td>
-            </tr>
-	        <tr>
-	          <td align="left">&nbsp;</td>
-	          <td align="left">&nbsp;</td>
-            </tr>
-	        <tr>
-	          <td align="left">&nbsp;</td>
-	          <td align="left">&nbsp;</td>
+	          <td>&nbsp;</td>
+	          <td>&nbsp;</td>
+	          <td>&nbsp;</td>
             </tr>
           </table>
-        </form>
-	    <p><img src="static/images/icon2.png" width="117" height="117"></p>
-<p>&nbsp;</p>
-	    <p>Improve yourself or others</p>
-	    <p>jhjh f sdfjhsd jjsdhf jsdhfjh</p>
-	    <p>jsdfh skkjhf ksdhfkj h</p>
-	    <p>jshdf khsdk j hsdfjkhsd fkh</p>
-	    <p>kshdfk hsjkfhs fhkhsdf</p>
-	    <p> jfhskdhf kjhsdfkjhsdfjkh</p>
-	    <p> sdfhksdh jhsdfjkhsdkf</p>
+	    </form>
 	    <p>&nbsp;</p>
+<p>&nbsp;</p>
 	    <p>&nbsp;</p>
 	    <div class="clear"></div>
 	  </div>

@@ -34,7 +34,7 @@ class FreeTimeBase(object):
 
     @classmethod
     def get_by_id(cls, query_id):
-        return DBSession.query(cls.id==query_id).first()
+        return DBSession.query(cls).filter(cls.id==query_id).first()
 
 DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base(cls=FreeTimeBase)
@@ -69,7 +69,6 @@ class User(Base):
     'polymorphic_on': _role,
     'polymorphic_identity': 'Unknown'
     }
-    interests = []
 
     @property
     def password(self):
@@ -87,8 +86,7 @@ class User(Base):
         if role == 'Doer':
             self.__class__ = Doer
         else:
-            self.__class__ = Leader
-    
+            self.__class__ = Leader    
 
     def add_interest(self, interest):
         raise NotImplementedError()
