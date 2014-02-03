@@ -171,10 +171,14 @@ a:active {
 				<h3><a href="#">Find an Event<span> Participate</span></a></h3>
 				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
 			</div>
-			<div class="grid1_of_3"> <a href="/sign_up"><img src="static/images/icon2.png" alt=""/></a>
-			  <h3><a href="/sign_up">Sign-up<span> Its Free</span></a></h3>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
-			</div>
+      % if not user:
+      <div class="grid1_of_3"> <a href="/sign_up"><img src="static/images/icon2.png" alt=""/></a>
+			  <h3>
+          <a href="/sign_up">Sign-up<span> Its Free</span></a>
+        </h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's.</p>
+      </div>
+      % endif
 			<div class="grid1_of_3">
 				<img src="static/images/icon3.png" alt=""/>
 				<h3><a href="#">Create and Event <span> Contribute</span></a></h3>

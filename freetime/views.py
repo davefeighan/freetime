@@ -23,13 +23,13 @@ class BaseView(object):
         else:
             self.user = None
         self.response['user'] = self.user
+        form = SignInForm()
+        self.response['sign_in_form'] = form
 
 class Home(BaseView):
     @view_config(route_name='home', renderer='freetime:templates/index.html.mako',
         request_method='GET')
     def home(self):
-        form = SignInForm()
-        self.response['sign_in_form'] = form
         return self.response
 
 class AuthenticationView(BaseView):

@@ -11,7 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="static/css/style1.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="static/js/jquery.min.js"></script>
 	 	<!---strat-slider---->
 	    <link rel="stylesheet" type="text/css" href="static/css/slider.css" />
@@ -60,10 +60,14 @@ a:active {
 		    <tr>
 		      <td><a href="/"><img src="static/images/freetime_logo.png" alt="" height="75"/></a></td>
 			    <td valign="middle" class="header_table"><p>
-			      <form name="form1" method="post" action="">
-<input name="username" type="text" id="username" value="Email address">
-			      <input name="password" type="text" id="password" value="Password">
-			      <input type="submit" name="Login" id="Login" value="Verzenden"></form>
+            % if not user:
+			      <form name="form1" method="post" action="/sign_in">
+            ${sign_in_form.username}
+            ${sign_in_form.password}
+            <input type="submit" name="Login" id="Login" value="Login"></form>
+            % else:
+            <a href="/sign_out">Logout</a>
+            % endif
 			    </p>
 </td>
 		      <td valign="middle">&nbsp;</td>
@@ -80,9 +84,17 @@ a:active {
 </div>
 		<div class="clear"></div>
 </div>
+<!-- start slider -->
+<div class="header_btm"></div>
+<div class="top_bg">
+    <div class="top">
+      <h2>Sign up for an account</h2>
+    </div>
+</div>
+<!-- start header -->
 </div>
 <!-- start header --><!-- start slider --><!-- start main -->
-<div class="wrap">
+<div class="main">
 	<div class="main"><!-- start grids_of_3 -->
 	  <div class="grids_of_1">
 	    <form name="registration_form" method="post" action="/sign_up">
