@@ -63,14 +63,18 @@ a:active {
 	<div class="header">
 		  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
 		    <tr>
-		      <td><a href="index.html"><img src="static/images/freetime_logo.png" alt="" height="75"/></a></td>
+		      <td><a href="/"><img src="static/images/freetime_logo.png" alt="" height="75"/></a></td>
 			    <td valign="middle" class="header_table">
-			      <form name="form1" method="post" action="">
-<input name="username" type="text" id="username" value="Email address">
-			      <input name="password" type="text" id="password" value="Password">
-			      <input type="submit" name="Login" id="Login" value="Verzenden"></form>
-			    
-</td>
+	                  % if not user:
+	      			      <form name="form1" method="post" action="/sign_in">
+		                  ${sign_in_form.username}
+		                  ${sign_in_form.password}
+		                  <input type="submit" name="Login" id="Login" value="Login"></form>
+		              </form>
+	                  % else:
+	                  <a href="/sign_out">Logout</a>
+	                  % endif
+				</td>
 		      <td valign="middle">&nbsp;</td>
 			    <td><div class="social-icons">
 			      <ul>
@@ -109,7 +113,7 @@ a:active {
 <!-- start slider -->
 <div class="top_bg">
     <div class="top">
-      <h2>Welcome $username</h2>
+      <h2>Welcome ${user.first_name}</h2>
     </div>
 </div>
 </div>
@@ -137,6 +141,13 @@ a:active {
 	              <td>&nbsp;</td>
 	              <td>&nbsp;</td>
                 </tr>
+                <tr>
+                Your interests:
+                <ul>
+                % for interest in user.interests:
+                <li>${interest.name}</li>
+                % endfor
+                </ul>
 	            <tr>
 	              <td colspan="3"><a href="#">Subscribed Events</a></td>
                 </tr>

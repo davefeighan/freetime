@@ -86,7 +86,11 @@ class User(Base):
         if role == 'Doer':
             self.__class__ = Doer
         else:
-            self.__class__ = Leader    
+            self.__class__ = Leader
+
+    @property
+    def interests(self):
+        raise NotImplementedError()
 
     def add_interest(self, interest):
         raise NotImplementedError()
@@ -127,6 +131,10 @@ class Doer(User):
         doer_interest = DoerInterest(doer=self, interest=interest)
         return doer_interest
 
+    @property
+    def interests(self):
+        return [doer_interest.interest for doer_interest in self.doerinterests]
+
 class Leader(User):
     __tablename__ = 'leader'
 
@@ -137,6 +145,9 @@ class Leader(User):
         server_default=func.uuid_generate_v4())
     def add_interest(self, interest):
         return LeaderInterest(leader=self, interest=interest)
+    @property
+    def interests(self):
+        return [leader_interest.interest for leader_interest in self.leaderinterests]
 
 class Request(Base):
     __tablename__ = 'request'
@@ -161,7 +172,7 @@ class DoerInterest(Base):
     doer_id = Column(ForeignKey('doer.id'), nullable=False)
     interest_id = Column(ForeignKey('interest.id'), nullable=False)
 
-    doer = relationship('Doer', backref=backref('interests',
+    doer = relationship('Doer', backref=backref('doerinterests',
         cascade='all, delete-orphan'))
     interest = relationship('Interest', backref=backref('doerinterests',
         cascade='all, delete-orphan'))
@@ -174,7 +185,7 @@ class LeaderInterest(Base):
     leader_id = Column(ForeignKey('leader.id'), nullable=False)
     interest_id = Column(ForeignKey('interest.id'), nullable=False)
 
-    leader = relationship('Leader', backref=backref('interests',
+    leader = relationship('Leader', backref=backref('leaderinterests',
         cascade='all, delete-orphan'))
     interest = relationship('Interest', backref=backref('leaderinterests',
         cascade='all, delete-orphan'))

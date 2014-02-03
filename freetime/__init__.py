@@ -31,5 +31,7 @@ def main(global_config, **settings):
     config.add_route('sign_up', '/sign_up')
     config.add_route('sign_in', '/sign_in')
     config.add_route('sign_out', '/sign_out')
+    config.add_route('profile_create', '/profile_create')
+    config.add_route('profile', '/profile')
     config.scan()
     return config.make_wsgi_app()

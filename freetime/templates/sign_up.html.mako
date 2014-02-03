@@ -58,7 +58,7 @@ a:active {
 	<div class="header">
 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
 		    <tr>
-		      <td><a href="index.html"><img src="static/images/freetime_logo.png" alt="" height="75"/></a></td>
+		      <td><a href="/"><img src="static/images/freetime_logo.png" alt="" height="75"/></a></td>
 			    <td valign="middle" class="header_table"><p>
 			      <form name="form1" method="post" action="">
 <input name="username" type="text" id="username" value="Email address">

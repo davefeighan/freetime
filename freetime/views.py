@@ -67,9 +67,10 @@ class AuthenticationView(BaseView):
                     DBSession.flush()
                 user.add_interest(interest)
             headers = remember(self.request, user.id)
-            self.request.response.headerlist.extend(headers)
             return HTTPFound(
-                location=self.request.route_url('home'), headers=headers)
+                location=self.request.route_url('profile'),
+                headers=headers
+                )
         else:
             self.response['registration_form'] = form
             return self.response            
@@ -84,7 +85,7 @@ class AuthenticationView(BaseView):
                 user = User.get_by_username(form.username.data)
                 headers = remember(self.request, user.id)
                 return HTTPFound(
-                    location=self.request.route_url('home'),
+                    location=self.request.route_url('profile'),
                     headers=headers
                     )
 
@@ -94,3 +95,16 @@ class AuthenticationView(BaseView):
     def sign_out(self):
         forget(self.request)
         return HTTPFound(location=self.request.route_url('home'))
+
+class UserProfile(BaseView):
+    @view_config(route_name='profile_create',
+        renderer='freetime:templates/profile_create_event.html.mako',
+        request_method='GET')
+    def sign_out(self):
+        return self.response
+
+    @view_config(route_name='profile',
+        renderer='freetime:templates/profile.html.mako',
+        request_method='GET')
+    def sign_out(self):
+        return self.response

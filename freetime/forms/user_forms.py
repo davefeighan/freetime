@@ -13,8 +13,25 @@ def age_or_blank(form, field):
     except ValueError, TypeError:
         raise ValidationError('Please provide an age as a number')
 
+INTERESTS = [
+'Resume and C.V. Writing',
+'Business Networking',
+'Business Plans',
+'Team Building',
+'Finance',
+'Beautification',
+'Administration',
+'Tutoring'
+'Food and Hunger',
+'Transportation and Labor',
+'Crafts',
+'Sports',
+'Music',
+'Food',
+'Movies and Books'
+]
 class InterestForm(Form):
-    name = SelectField('', choices=[('foo', 'foo'), ('bar', 'bar'), ('toto', 'toto')])
+    name = SelectField('', choices=[(interest, interest) for interest in INTERESTS])
 
 class RegistrationForm(Form):
     first_name = TextField('First Name',
