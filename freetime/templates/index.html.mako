@@ -130,24 +130,24 @@ a:active {
 <div class="slider_bg">
 <div class="wrap">
 	<div class="slider">
-				<!---start-da-slider----->
+				<!---start-da-slider--->
 				<div id="da-slider" class="da-slider">
 				<div class="da-slide">
-					<h2>Welcome to our website</h2>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					<h2>MAKE YOUR LIFE MORE MEANINGFUL</h2>
+					<p>We all live our lives in the same world, but we all live differently.  Take control of your life and how you spend  your time with FreeTime.  Finally, Do what you want to do.</p>
 				</div>
 				<div class="da-slide">
-					<h2>Clean & Flat Design</h2>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					<h2>CONTRIBUTE TO YOUR COMMUNITY</h2>
+					<p>Ever want to share what you know and love with your neighbors, friends, and the world?  Ever want to lead an experience or an adventure?  Now you can with FreeTime.</p>
 				</div>
 				<div class="da-slide">
-					<h2>Clean & Flat Design</h2>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+					<h2>MAKE THE WORLD BETTER</h2>
+					<p>When people, especially lots of people, don't spend their time to it's full potential, everyone loses.  We all win when everyone's life and time are filled with positive and fun activities and tasks. Now, with FreeTime, They can.</p>
 				</div>
 				<div class="da-slide">
-					<h2>Welcome to our website</h2>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-				</div>			
+					<h2>CONTRIBUTE TO YOUR COMMUNITY</h2>
+					<p>Ever want to share what you know and love with your neighbors, friends, and the world?  Ever want to lead an experience or an adventure?  Now you can with FreeTime.</p>
+				</div>
 				<nav class="da-arrows">
 					<span class="da-arrows-prev"></span>
 					<span class="da-arrows-next"></span>
@@ -161,8 +161,8 @@ a:active {
 <div class="wrap">
 	<div class="main">
 		<div class="main_text">
-			<h2>&quot;Use your time for your own good&quot;</h2>
-			<p class="para">"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+			<h2>LIVE THE LIFE YOU WANT TO LIVE</h2>
+			<p class="para">Today and Everyday.  We live in a world where our connections offer endless possibilities and promis.  WIth FreeTime, you can maximize those connections and the benefit they give you.  Take control of your time, now, with FreeTime.  Tell us what you want to do and we'll show you how to do it.</p>
 		</div>
 		<!-- start grids_of_3 -->
 		<div class="grids_of_3">

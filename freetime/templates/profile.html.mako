@@ -11,7 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
-<link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="static/css/style1.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="static/js/jquery.min.js"></script>
 	 	<!---strat-slider---->
 	    <link rel="stylesheet" type="text/css" href="static/css/slider.css" />
@@ -59,7 +59,7 @@ a:active {
 <body>
 <!-- start header -->
 <div class="header_bg">
-<div class="wrap">
+<div class="main">
 	<div class="header">
 		  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="1">
 		    <tr>
@@ -166,33 +166,53 @@ a:active {
                 </table>
 	            <p>&nbsp;</p>
 	            <p>&nbsp;</p>
-	            <table width="75%" border="1" cellspacing="1" cellpadding="1">
-	            <tr>
-	              <td colspan="3" class="txt-center"><span class="header"><span class="event_text">$eventtitle</span></span></td>
-	              </tr>
-	            <tr>
-	              <td colspan="3">$event_time, $event_location</td>
-	              </tr>
-	            <tr>
-	              <td>&nbsp;</td>
-	              <td>&nbsp;</td>
-	              <td>&nbsp;</td>
-	              </tr>
-	            <tr>
-	              <td colspan="3">$event_description</td>
-	              </tr>
-	            <tr>
-	              <td colspan="3">Organised by: $first_name$lastname</td>
-	              </tr>
-	            <tr>
-	              <td>&nbsp;</td>
-	              <td>&nbsp;</td>
-	              <td>&nbsp;</td>
-                </tr>
-	            <tr>
-	              <td colspan="3"><input type="submit" name="subscribe" id="subscribe" value="subscribe to the event"></td>
-	              </tr>
-              </table>
+	            % for event in events:
+	            <table width="75%" border="0" cellspacing="1" cellpadding="1">
+	                <tr>
+	                  <td width="29%" rowspan="4"><img src="static/images/default.gif" alt="" width="62" height="65"></td>
+	                  <td colspan="2">${event.name}</td>
+	                </tr>
+	                <tr>
+	                  <td width="59%">Organised by: ${event.leader.first_name} ${event.leader.last_name}</td>
+	                  <td width="12%">&nbsp;</td>
+	                </tr>
+	                <tr>
+	                  <td>&nbsp;</td>
+	                  <td>&nbsp;</td>
+	                </tr>
+	                <tr>
+	                  <td colspan="2">${event.date.isoformat()} - Cairo</td>
+	                </tr>
+	                <tr>
+	                  <td>&nbsp;</td>
+	                  <td>&nbsp;</td>
+	                  <td>&nbsp;</td>
+	                </tr>
+	                <tr>
+	                  <td>&nbsp;</td>
+	                  <td>Minimum people </td>
+	                  <td>17</td>
+	                </tr>
+	                <tr>
+	                  <td>&nbsp;</td>
+	                  <td>Maximum people</td>
+	                  <td>30</td>
+	                </tr>
+	                <tr>
+	                  <td>&nbsp;</td>
+	                  <td>&nbsp;</td>
+	                  <td>&nbsp;</td>
+	                </tr>
+	                <tr>
+	                  <td>&nbsp;</td>
+	                  <td><input type="submit" name="subscribe" id="subscribe" value="subscribe to the event"></td>
+	                  <td>&nbsp;</td>
+	                </tr>
+	                <tr>
+	                  <td colspan="3">&nbsp;</td>
+	                </tr>
+	              </table>
+	              % endfor
                 <p>&nbsp;</p>
                 <table width="75%" border="0" cellspacing="1" cellpadding="1">
                   <tr>

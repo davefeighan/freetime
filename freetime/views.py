@@ -8,7 +8,8 @@ from .models import (
     Doer,
     Leader,
     User,
-    Interest
+    Interest,
+    Event
     )
 from freetime.forms import RegistrationForm, SignInForm
 from pyramid.security import authenticated_userid, remember, forget
@@ -100,11 +101,13 @@ class UserProfile(BaseView):
     @view_config(route_name='profile_create',
         renderer='freetime:templates/profile_create_event.html.mako',
         request_method='GET')
-    def sign_out(self):
+    def profile_create(self):
         return self.response
 
     @view_config(route_name='profile',
         renderer='freetime:templates/profile.html.mako',
         request_method='GET')
-    def sign_out(self):
+    def profile(self):
+        events = DBSession.query(Event).all()
+        self.response['events'] = events
         return self.response
