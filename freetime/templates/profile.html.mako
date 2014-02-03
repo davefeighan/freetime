@@ -113,7 +113,9 @@ a:active {
 <!-- start slider -->
 <div class="top_bg">
     <div class="top">
+    %if user:
       <h2>Welcome ${user.first_name}</h2>
+    %endif
     </div>
 </div>
 </div>
@@ -273,6 +275,16 @@ a:active {
           </table>
 	      <p>&nbsp;</p>
 	    </form>
+      % if user and user.role == 'Leader':
+      <br/>
+      <br/>
+      Create Event<br/>
+      <form action='/create_event' method='post'>
+        ${event_form.name}
+      <input type='submit' value="Submit">
+      </form>
+      % endif
+
 	    <div class="clear"></div>
 	  </div>
 		<!-- end grids_of_3 -->

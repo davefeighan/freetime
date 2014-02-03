@@ -11,8 +11,9 @@ from .models import (
     Interest,
     Event
     )
-from freetime.forms import RegistrationForm, SignInForm
+from freetime.forms import RegistrationForm, SignInForm, EventForm
 from pyramid.security import authenticated_userid, remember, forget
+import datetime
 
 class BaseView(object):
     def __init__(self, request):
@@ -108,6 +109,21 @@ class UserProfile(BaseView):
         renderer='freetime:templates/profile.html.mako',
         request_method='GET')
     def profile(self):
+        event_form = EventForm()
         events = DBSession.query(Event).all()
+        self.response['event_form'] = event_form
         self.response['events'] = events
         return self.response
+
+    @view_config(route_name='create_event',
+        request_method='POST',
+        renderer='freetime:templates/profile.html.mako')
+    def create_event(self):
+        event_form = EventForm(self.request.POST)
+        event = Event()
+        event.name = event_form.name.data
+        event.date = datetime.date.today()
+        event.leader = self.user
+        event.leader_id = event.leader.id
+        self.response['event_form'] = EventForm()
+        return HTTPFound(location=self.request.route_url('profile'))

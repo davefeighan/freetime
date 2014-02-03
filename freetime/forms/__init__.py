@@ -1,1 +1,1 @@
-from user_forms import RegistrationForm, SignInForm
+from user_forms import RegistrationForm, SignInForm, EventForm

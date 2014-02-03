@@ -55,3 +55,7 @@ class SignInForm(Form):
         [validators.DataRequired(), validators.Email()])
     password = PasswordField('Password',
         [validators.DataRequired()])
+
+class EventForm(Form):
+    name = TextField('Event Name', [validators.DataRequired()])
+    
