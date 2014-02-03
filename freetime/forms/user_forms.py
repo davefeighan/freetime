@@ -14,7 +14,7 @@ def age_or_blank(form, field):
         raise ValidationError('Please provide an age as a number')
 
 class InterestForm(Form):
-    name = SelectField('Interest', choices=[('foo', 'foo'), ('bar', 'bar'), ('toto', 'toto')])
+    name = SelectField('', choices=[('foo', 'foo'), ('bar', 'bar'), ('toto', 'toto')])
 
 class RegistrationForm(Form):
     first_name = TextField('First Name',

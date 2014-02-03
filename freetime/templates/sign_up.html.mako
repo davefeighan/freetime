@@ -85,72 +85,79 @@ a:active {
 <div class="wrap">
 	<div class="main"><!-- start grids_of_3 -->
 	  <div class="grids_of_1">
-	    <form name="form1" method="post" action="">
+	    <form name="registration_form" method="post" action="/sign_up">
 	      <table width="50%" border="1" align="right" cellpadding="0" cellspacing="1">
 	        <tr>
-	          <td width="213" align="center" valign="top">Firsname</td>
+	          <td width="213" align="center" valign="top">${registration_form.first_name.label}</td>
 	          <td width="174" align="left"><label for="name_first"></label>
-              <input type="text" name="name_first" id="name_first"></td>
+	          	${registration_form.first_name}
+	          </td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Lastname</td>
+	          <td align="center" valign="top">${registration_form.last_name.label}</td>
 	          <td align="left"><label for="name_last"></label>
-              <input type="text" name="name_last" id="name_last"></td>
+	          	${registration_form.last_name}
+	          </td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Age</td>
+	          <td align="center" valign="top">${registration_form.age.label}</td>
 	          <td align="left"><label for="age"></label>
-              <input type="text" name="age" id="age"></td>
+		          	${registration_form.age}
+              </td>
             </tr>
 	        <tr>
 	          <td align="center" valign="top">&nbsp;</td>
 	          <td align="left">&nbsp;</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Email</td>
+	          <td align="center" valign="top">${registration_form.username.label}</td>
 	          <td align="left"><label for="username"></label>
-              <input type="text" name="username" id="username"></td>
-            </tr>
+	          ${registration_form.username}
+		        </td>
+          </tr>
 	        <tr>
-	          <td align="center" valign="top">Password</td>
+	          <td align="center" valign="top">${registration_form.password.label}</td>
 	          <td align="left"><label for="password"></label>
-              <input type="text" name="password" id="password"></td>
+	          	${registration_form.password}
+	          </td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Confirm your password</td>
+	          <td align="center" valign="top">${registration_form.confirm.label}</td>
 	          <td align="left"><label for="password_confirm"></label>
-              <input type="text" name="password_confirm" id="password_confirm"></td>
+		          ${registration_form.confirm}
+	          </td>
             </tr>
 	        <tr>
 	          <td align="center" valign="top">&nbsp;</td>
 	          <td align="left">&nbsp;</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Role</td>
+	          <td align="center" valign="top">${registration_form.role.label}</td>
 	          <td align="left"><label for="role"></label>
-	            <select name="role" id="role">
-	              <option>Leader</option>
-	              <option>Do-er</option>
-              </select></td>
+		          ${registration_form.role}
+						</td>
             </tr>
 	        <tr>
 	          <td align="center" valign="top">&nbsp;</td>
 	          <td align="left">&nbsp;</td>
             </tr>
 	        <tr>
-	          <td align="center" valign="top">Select you first interest</td>
-	          <td align="left"><select name="select" id="select">
-              </select></td>
+	          <td align="center" valign="top">Select your first interest</td>
+	          <td align="left">
+	          	${registration_form.interests[0]}
+	          </td>
             </tr>
 	        <tr>
 	          <td align="center" valign="top">Select you second interest</td>
-	          <td align="left"><select name="select2" id="select2">
-              </select></td>
+	          <td align="left">
+		          ${registration_form.interests[1]}
+	          </td>
             </tr>
 	        <tr>
 	          <td align="center" valign="top">Select you third interest</td>
-	          <td align="left"><select name="select3" id="select3">
-              </select></td>
+	          <td align="left">
+		          ${registration_form.interests[2]}
+	          </td>
             </tr>
 	        <tr>
 	          <td align="left">&nbsp;</td>
@@ -158,7 +165,7 @@ a:active {
             </tr>
 	        <tr>
 	          <td align="left">&nbsp;</td>
-	          <td align="left"><input type="submit" name="submit" id="submit" value="Verzenden"></td>
+	          <td align="left"><input type="submit" name="submit" id="submit" value="Submit"></td>
             </tr>
 	        <tr>
 	          <td align="left">&nbsp;</td>

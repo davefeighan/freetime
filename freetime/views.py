@@ -28,6 +28,8 @@ class Home(BaseView):
     @view_config(route_name='home', renderer='freetime:templates/index.html.mako',
         request_method='GET')
     def home(self):
+        form = SignInForm()
+        self.response['sign_in_form'] = form
         return self.response
 
 class AuthenticationView(BaseView):
@@ -71,13 +73,6 @@ class AuthenticationView(BaseView):
         else:
             self.response['registration_form'] = form
             return self.response            
-        return self.response
-
-    @view_config(route_name='sign_in', renderer='freetime:templates/sign_in.html.mako',
-        request_method='GET')
-    def sign_in_get(self):
-        form = SignInForm()
-        self.response['sign_in_form'] = form
         return self.response
 
     @view_config(route_name='sign_in', renderer='freetime:templates/sign_in.html.mako',

@@ -12,11 +12,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 <link href="static/css/style.css" rel="stylesheet" type="text/css" media="all" />
-<script type="text/javascript" src="static/jsjquery.min.js"></script>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
 	 	<!---strat-slider---->
 	    <link rel="stylesheet" type="text/css" href="static/css/slider.css" />
-		<script type="text/javascript" src="static/jsmodernizr.custom.28468.js"></script>
-		<script type="text/javascript" src="static/jsjquery.cslider.js"></script>
+		<script type="text/javascript" src="static/js/modernizr.custom.28468.js"></script>
+		<script type="text/javascript" src="static/js/jquery.cslider.js"></script>
 			<script type="text/javascript">
 				$(function() {
 				
@@ -29,8 +29,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</script>
 		<!---//strat-slider---->
 <!-- start top_js_button -->
-<script type="text/javascript" src="static/jsmove-top.js"></script>
-<script type="text/javascript" src="static/jseasing.js"></script>
+<script type="text/javascript" src="static/js/move-top.js"></script>
+<script type="text/javascript" src="static/js/easing.js"></script>
    <script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$(".scroll").click(function(event){		
@@ -63,10 +63,14 @@ a:active {
 		    <tr>
 		      <td><a href="index.html"><img src="static/images/freetime_logo.png" alt="" height="75"/></a></td>
 			    <td valign="middle" class="header_table"><p>
-			      <form name="form1" method="post" action="">
-<input name="username" type="text" id="username" value="Email address">
-			      <input name="password" type="text" id="password" value="Password">
-			      <input type="submit" name="Login" id="Login" value="Verzenden"></form>
+            % if not user:
+			      <form name="form1" method="post" action="/sign_in">
+            ${sign_in_form.username}
+            ${sign_in_form.password}
+            <input type="submit" name="Login" id="Login" value="Login"></form>
+            % else:
+            <a href="/sign_out">Logout</a>
+            % endif
 			    </p>
 </td>
 		      <td valign="middle">&nbsp;</td>
@@ -115,7 +119,7 @@ a:active {
 			$(".text").focus();
 		});
 	</script>
-	<script type="text/javascript" src="static/jsscript.js"></script>
+	<script type="text/javascript" src="static/js/script.js"></script>
 	<div class="clear"></div>
 
 		<div class="clear"></div>
